@@ -1,4 +1,4 @@
 # Active Goals
-- goal-name.md
+- [ ] [Goal Title](goal-name.md)
 
 # Done

@@ -26,17 +26,25 @@ This describes agent task management system. All agent work is tracked in a `.ba
 - **Subtask** — a checkbox indented under a task. One atomic step.
 - **Phase** — optional `##` header grouping tasks into stages within a goal.
 
+## Status markers
+
+These markers apply to goals, tasks, and subtasks alike:
+- `[ ]` — todo
+- `[~]` — in progress
+- `[x]` — done
+- `[!]` — blocked (add reason inline, e.g. `→ blocked by: waiting for API keys`)
+
 ## INDEX.md
 
-Lists active goals in priority order. The agent works on the first active goal. Completed goals move to the `done/` section.
+Lists active goals in priority order with status markers and markdown links. The agent works on the first active goal. Completed goals move to the `done/` section.
 
 ```markdown
 # Active Goals
-- auth-refactor.md
-- user-registration.md
+- [~] [Auth Refactor](auth-refactor.md)
+- [ ] [User Registration](user-registration.md)
 
 # Done
-- payment-integration.md
+- [x] [Payment Integration](done/payment-integration.md)
 ```
 
 ## Workflow: Review → Work → Update
@@ -78,7 +86,7 @@ Always update the goal file and INDEX.md before and after each work session.
   - [~] Add refresh token flow → see RFC 6749
   - [ ] Add rate limiting
 - [ ] Build REST API endpoints → `src/api/routes.ts`
-- [!] Integrate payment provider → blocked: waiting for API keys
+- [!] Integrate payment provider → blocked by: waiting for API keys
 
 ## Phase 3: Polish
 - [ ] Add integration tests → `tests/integration/`
@@ -86,12 +94,6 @@ Always update the goal file and INDEX.md before and after each work session.
 ```
 
 ## Rules
-
-### Status markers
-- `[ ]` — todo
-- `[x]` — done
-- `[~]` — in progress
-- `[!]` — blocked (always add reason as inline note)
 
 ### Ordering
 Task order defines priority. The first incomplete task in the current phase is the next to work on. Reorder tasks to reprioritize.
@@ -116,5 +118,7 @@ Append `→` after the description to link context. Use only when the task title
 
 ### Goal lifecycle
 - Create a new `.md` file in `.backlog/` for each new goal
-- Add it to INDEX.md under Active Goals
-- When all tasks are done → move to Done section in INDEX.md and into `done/` folder
+- Add it to INDEX.md under Active Goals as `- [ ] [Goal Title](goal-file.md)`
+- Mark `[~]` when work begins on a goal
+- Mark `[!]` with reason if the goal is blocked
+- When all tasks are done → mark `[x]`, move to Done section in INDEX.md and into `done/` folder
