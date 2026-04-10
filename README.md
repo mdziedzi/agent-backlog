@@ -4,10 +4,19 @@ A skill for managing AI agent work via a simple markdown backlog kept in a `.bac
 
 ## How it works
 
-- **Goals** live as individual markdown files (`.backlog/auth-refactor.md`) — one focused effort per file.
+- **Goals** live as individual markdown files — one focused effort per file.
 - **Tasks** are checkbox items inside a goal; **subtasks** nest one level under them.
-- **Phases** (`##` headers) optionally group tasks into stages.
+- **Phases** optionally group tasks into stages.
 - **`INDEX.md`** lists active goals in priority order; completed goals move to `done/`.
+
+## Install
+
+### Using npx skills
+```sh
+npx skills add https://github.com/mdziedzi/agent-backlog --skill agent-backlog
+```
+
+Or manually: copy `skills/agent-backlog/` into your project's `skills/` directory or your agent's config.
 
 ## Status markers
 
