@@ -21,7 +21,7 @@ This describes agent task management system. All agent work is tracked in a `.ba
 ```
 
 - **Backlog** — the `.backlog/` folder. Contains all goals.
-- **Goal** — a single markdown file. One focused effort (a feature, user story, refactor, bugfix).
+- **Goal** — a single markdown file. One focused effort (a feature, user story, refactor, bugfix, etc.).
 - **Task** — a checkbox item inside a goal. One concrete action.
 - **Subtask** — a checkbox indented under a task. One atomic step.
 - **Phase** — optional `##` header grouping tasks into stages within a goal.
@@ -73,25 +73,12 @@ Always update the goal file and INDEX.md before and after each work session.
 
 ## Goal File Format
 
-```markdown
-# JIRA-1234: Implement User Registration
+A goal file has the structure: **title → description (optional) → tasks (required)**. Developer notes can appear anywhere.
 
-## Phase 1: Setup
-- [x] Initialize project structure → `src/`
-- [x] Configure linting and formatting
+- **Description** — optional freeform text after the title. Covers motivation, scope, definition of done, acceptance criteria — as lightweight or detailed as you want.
+- **Developer notes** — optional `> [!NOTE]` callouts anywhere in the goal file. Use for architectural decisions, technical rationale, or trade-offs that aren't obvious from the tasks.
 
-## Phase 2: Core Features
-- [~] Implement auth module → `src/auth/`
-  - [x] Add JWT token generation
-  - [~] Add refresh token flow → see RFC 6749
-  - [ ] Add rate limiting
-- [ ] Build REST API endpoints → `src/api/routes.ts`
-- [!] Integrate payment provider → blocked by: waiting for API keys
-
-## Phase 3: Polish
-- [ ] Add integration tests → `tests/integration/`
-- [ ] Write API docs
-```
+A goal with just a title and tasks is perfectly valid. See `assets/GOAL_TEMPLATE.md` for the full structure.
 
 ## Rules
 
@@ -117,7 +104,7 @@ Append `→` after the description to link context. Use only when the task title
 - New tasks go under the relevant section, or create a new section
 
 ### Goal lifecycle
-- Create a new `.md` file in `.backlog/` for each new goal
+- Create a new `.md` file in `.backlog/` for each new goal — add a description and developer notes if useful, or just start with tasks
 - Add it to INDEX.md under Active Goals as `- [ ] [Goal Title](goal-file.md)`
 - Mark `[~]` when work begins on a goal
 - Mark `[!]` with reason if the goal is blocked

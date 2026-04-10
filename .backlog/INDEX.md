@@ -4,4 +4,5 @@
 - [ ] [Add Example Backlog](add-example-backlog.md)
 
 # Done
+- [x] [Optional Goal Description & Developer Notes](done/optional-goal-metadata.md)
 - [x] [Fix INDEX Linking Format](done/fix-index-linking.md)
