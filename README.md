@@ -7,7 +7,7 @@ A skill for managing AI agent work via a simple markdown backlog kept in a `.bac
 - **Goals** live as individual markdown files — one focused effort per file.
 - **Tasks** are checkbox items inside a goal; **subtasks** nest one level under them.
 - **Phases** optionally group tasks into stages.
-- **`INDEX.md`** lists active goals in priority order; completed goals move to `done/`.
+- **`BACKLOG.md`** lists active goals in priority order; goal files live in `goals/` and move to `goals/done/` when completed.
 
 ## Install
 
@@ -27,6 +27,6 @@ Or manually: copy `skills/agent-backlog/` into your project's `skills/` director
 
 ## Workflow
 
-Each session follows **Review → Work → Update**: open `INDEX.md`, pick the first active goal, refine or decompose its tasks, work top-down, then mark progress and move finished goals to `done/`.
+Each session follows **Review → Work → Update**: open `BACKLOG.md`, pick the first active goal, refine or decompose its tasks, work top-down, then mark progress and move finished goals to `goals/done/`.
 
 See [skills/agent-backlog/SKILL.md](skills/agent-backlog/SKILL.md) for the full specification.
