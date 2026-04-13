@@ -37,7 +37,7 @@ These markers apply to goals, tasks, and subtasks alike:
 
 ## BACKLOG.md
 
-Lists active goals in priority order with status markers and markdown links. The agent works on the first active goal. Completed goals move to the `Done` section and their files move into `goals/done/`.
+Lists active goals in priority order with status markers and markdown links. The agent works on the first active goal. Completed goals move to the `Done` section and their files move into `goals/done/`. The Done section is stacked with the most recently completed goal on top.
 
 ```markdown
 # Active Goals
