@@ -25,7 +25,7 @@ This describes agent task management system. All agent work is tracked in a `.ba
 - **Goal** — a single markdown file. One focused effort (a feature, user story, refactor, bugfix, etc.).
 - **Task** — a checkbox item inside a goal. One concrete action.
 - **Subtask** — a checkbox indented under a task. One atomic step.
-- **Phase** — optional `##` header grouping tasks into stages within a goal.
+- **Phase** — optional `##` header grouping tasks into stages within a goal. Each phase is sized so one agent run can complete it. Phases break large goals into session-sized chunks.
 
 ## Status markers
 
@@ -61,7 +61,8 @@ Lists active goals in priority order with status markers and markdown links. The
 ### During work
 1. Mark current task `[~]` in progress
 2. Work top-down — task order defines priority, first incomplete task is next
-3. If blocked → mark `[!]` with reason, move to next task
+3. If the goal has phases, complete the current phase and stop — one phase per run
+4. If blocked → mark `[!]` with reason, move to next task
 
 ### After finishing work
 1. Mark completed tasks `[x]`
@@ -82,6 +83,11 @@ A goal file has the structure: **title → description (optional) → tasks (req
 A goal with just a title and tasks is perfectly valid. See `assets/GOAL_TEMPLATE.md` for the full structure.
 
 ## Rules
+
+### Phases
+- A phase should be completable in a single agent run — if it can't, split it
+- Each phase should produce a coherent, committable unit of work
+- Use phases when a goal has natural stages (e.g. setup → implement → test) or is too large for one session
 
 ### Ordering
 Task order defines priority. The first incomplete task in the current phase is the next to work on. Reorder tasks to reprioritize.
